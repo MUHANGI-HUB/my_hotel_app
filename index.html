@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mirona Hotel - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            backdropBlur: {
+              xs: '2px',
+              sm: '4px',
+              md: '8px',
+            },
+            colors: {
+              charcoal: '#2F4F4F',
+              'charcoal-light': '#36454F',
+              'satin-gold': '#CFB53B',
+              ivory: '#FFFFF0',
+              'deep-navy': '#000080',
+              'burgundy': '#800020',
+            },
+            fontFamily: {
+              serif: ['Cormorant', 'serif'],
+              sans: ['Lato', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+      .dark body {
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      }
+      @media (max-width: 767px) {
+        .responsive-table thead {
+          display: none;
+        }
+        .responsive-table tr {
+          display: block;
+          margin-bottom: 1rem;
+          border: 1px solid #e5e7eb; /* gray-200 */
+          border-radius: 0.5rem;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-md */
+          overflow: hidden;
+          background-color: white;
+        }
+        .dark .responsive-table tr {
+          background-color: #2F4F4F; /* charcoal */
+          border-color: #36454F; /* charcoal-light */
+        }
+        .responsive-table tr:hover {
+            background-color: #fcf9e9; /* satin-gold/10 */
+        }
+        .dark .responsive-table tr:hover {
+            background-color: rgba(207, 181, 59, 0.1); /* satin-gold/10 */
+        }
+        .responsive-table td {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem;
+          border-bottom: 1px solid #f3f4f6; /* gray-100 */
+          text-align: right;
+        }
+        .dark .responsive-table td {
+          border-bottom-color: #36454F;
+        }
+        .responsive-table td:last-child {
+          border-bottom: 0;
+        }
+        .responsive-table td::before {
+          content: attr(data-label);
+          font-weight: 700;
+          text-align: left;
+          color: #2F4F4F; /* charcoal */
+          padding-right: 1rem;
+        }
+        .dark .responsive-table td::before {
+          color: #FFFFF0; /* ivory */
+        }
+      }
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        .printable-area, .printable-area * {
+          visibility: visible;
+        }
+        .printable-area {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+        }
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/google-genai-v0.12.0/index.js",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.553.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-ivory font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
